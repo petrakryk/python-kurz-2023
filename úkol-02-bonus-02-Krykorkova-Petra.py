@@ -2144,13 +2144,17 @@ staty = [
     },
 ]
 uzivatel_region = input("Zadejte název regionu (v angličtině): ")
-regiony = ["Africa", "Asia", "Europe", "Northern America", "Southern America"]
 
-if uzivatel_region in regiony:
-    print("Státy v tomto regionu jsou: ", end=" ")
+regions = 0
+for item in staty:
+    if item["region"] == uzivatel_region:
+        regions = regions + 1
+
+if regions !=0:
+    print("Seznam států v tomto regionu je: ", end= "")
     for item in staty:
-        if uzivatel_region == item["region"]:
-          print(item["name"], end =", ")
+        if item["region"] == uzivatel_region:
+            print(item["name"], end=", ")
 else:
     print("Neznámý region.")
 
