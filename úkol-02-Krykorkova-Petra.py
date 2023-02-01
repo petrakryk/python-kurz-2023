@@ -6,14 +6,17 @@ sklad = {
   "BC547C": 10
 }
 
-kod_zakaznik = input ("Zadejte kód součástky: ")
+kod_zakaznik = input("Zadejte kód součástky: ")
 
-if kod_zakaznik in sklad.keys():
+if kod_zakaznik in sklad:
     mnozstvi_zakaznik = int(input("Zadejte množství: "))
     
     if mnozstvi_zakaznik > sklad[kod_zakaznik]:
         print(f'Lze prodat pouze {sklad[kod_zakaznik]} kusů produktu.')
+        sklad.pop(kod_zakaznik)
 
+        print(sklad)#kontrola zůstatku na skladě
+        
     else:
         print("Požadované množství produktu je k dispozici.")
         sklad[kod_zakaznik] = sklad[kod_zakaznik] - mnozstvi_zakaznik
@@ -21,3 +24,5 @@ if kod_zakaznik in sklad.keys():
         #print(sklad)#kontrola zůstatku na skladě
 else:
     print(f'Požadovaný produkt není skladem.')
+
+    
