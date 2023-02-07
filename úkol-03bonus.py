@@ -16,7 +16,7 @@ hodnoceni = {
     "3": (50, 69),
     "4": (30, 49),
     "5": (0, 29)
-}
+    }
 
 znamky = {}
 
@@ -30,6 +30,9 @@ for item in prospech:
 
         if (prospech[item] >= low) and (prospech[item] < top):
             znamky.update({item: znamka})
+
+        elif (prospech[item] > hodnoceni["1"][0]):
+            znamky.update({item: "1"})
 
 with open("znamky.json", mode="w", encoding="utf-8") as vystup:
     json.dump(znamky, vystup, ensure_ascii=False)
